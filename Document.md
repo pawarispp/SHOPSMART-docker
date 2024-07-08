@@ -46,5 +46,8 @@
 - **Orchestration:**
   - Use Docker Compose to manage multiple containers.
 
+## Justification
+- I used Pandas because it is a great tool for data cleaning and transformation. PostgreSQL, along with SQLAlchemy, ensures reliable data management and efficient queries. Docker and Docker Compose provide consistent environments and make managing multiple containers easy.
+
 
 
