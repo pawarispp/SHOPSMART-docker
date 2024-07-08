@@ -1,0 +1,27 @@
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: shopsmart
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  notebook:
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./data:/home/jovyan/work/data
+      - ./etl_pipeline.ipynb:/home/jovyan/work/etl_pipeline.ipynb
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
